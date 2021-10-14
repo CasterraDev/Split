@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Sincerely.mp3-33b982304c8b76ce4a53798da1b6404d.mp3str"
+
+[deps]
+
+source_file="res://Sincerely.mp3"
+dest_files=[ "res://.import/Sincerely.mp3-33b982304c8b76ce4a53798da1b6404d.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,0 +1,101 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://Sprites/Enemies/Slime/Idle-Run (44x30).png" type="Texture" id=1]
+[ext_resource path="res://Slime.gd" type="Script" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 16.5188, 12.516 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 44, 30 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 1 )
+region = Rect2( 44, 0, 44, 30 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 1 )
+region = Rect2( 88, 0, 44, 30 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 1 )
+region = Rect2( 132, 0, 44, 30 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 1 )
+region = Rect2( 176, 0, 44, 30 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 1 )
+region = Rect2( 220, 0, 44, 30 )
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 1 )
+region = Rect2( 264, 0, 44, 30 )
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 1 )
+region = Rect2( 308, 0, 44, 30 )
+
+[sub_resource type="AtlasTexture" id=10]
+atlas = ExtResource( 1 )
+region = Rect2( 352, 0, 44, 30 )
+
+[sub_resource type="AtlasTexture" id=11]
+atlas = ExtResource( 1 )
+region = Rect2( 396, 0, 44, 30 )
+
+[sub_resource type="SpriteFrames" id=12]
+animations = [ {
+"frames": [ SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ) ],
+"loop": true,
+"name": "Walk",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=13]
+extents = Vector2( 21.4676, 9.1478 )
+
+[sub_resource type="RectangleShape2D" id=14]
+extents = Vector2( 14.856, 2.21461 )
+
+[node name="Slime" type="KinematicBody2D"]
+scale = Vector2( 0.8, 0.8 )
+collision_layer = 4
+collision_mask = 22
+script = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 2 )
+shape = SubResource( 1 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 12 )
+animation = "Walk"
+frame = 4
+playing = true
+
+[node name="floorCheck" type="RayCast2D" parent="."]
+enabled = true
+cast_to = Vector2( 0, 20 )
+collision_mask = 16
+
+[node name="SideChecker" type="Area2D" parent="."]
+space_override = 1
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SideChecker"]
+position = Vector2( 0.127144, 3.30577 )
+shape = SubResource( 13 )
+
+[node name="TopChecker" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TopChecker"]
+position = Vector2( -0.127151, -13.9859 )
+shape = SubResource( 14 )
+
+[connection signal="body_entered" from="SideChecker" to="." method="_on_SideChecker_body_entered"]
+[connection signal="body_entered" from="TopChecker" to="." method="_on_TopChecker_body_entered"]

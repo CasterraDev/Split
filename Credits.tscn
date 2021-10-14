@@ -1,0 +1,84 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Retro32.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Credits.gd" type="Script" id=2]
+[ext_resource path="res://Twitter Logo 32x32.png" type="Texture" id=3]
+
+[node name="Credits" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -140.5
+margin_top = -200.0
+margin_right = 140.5
+margin_bottom = -158.0
+custom_fonts/font = ExtResource( 1 )
+text = "Credits"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -312.0
+margin_top = -130.0
+margin_right = -31.0
+margin_bottom = -88.0
+rect_scale = Vector2( 0.8, 0.8 )
+custom_fonts/font = ExtResource( 1 )
+text = "Art: Pixel Frog"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label3" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -312.0
+margin_top = -72.7702
+margin_right = 43.0
+margin_bottom = -30.7702
+rect_scale = Vector2( 0.8, 0.8 )
+custom_fonts/font = ExtResource( 1 )
+text = "Music: \"Sincerely\" Kevin MacLeod
+ (incompetech.com)"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Back" type="Button" parent="."]
+margin_left = 29.1352
+margin_top = 36.419
+margin_right = 230.135
+margin_bottom = 84.419
+custom_fonts/font = ExtResource( 1 )
+text = "Back"
+
+[node name="Twitter Button" type="TextureButton" parent="."]
+margin_left = 209.808
+margin_top = 366.144
+margin_right = 249.808
+margin_bottom = 406.144
+rect_scale = Vector2( 2, 2 )
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="Back" to="." method="_on_Back_pressed"]
+[connection signal="pressed" from="Twitter Button" to="." method="_on_Twitter_Button_pressed"]

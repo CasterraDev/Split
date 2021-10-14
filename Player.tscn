@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Sprites/Terrain/Terrain (16x16).png" type="Texture" id=1]
+[ext_resource path="res://Player.gd" type="Script" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 7.72323, 15.6229 )
+
+[node name="Player" type="KinematicBody2D"]
+collision_layer = 2
+script = ExtResource( 2 )
+speed = 80
+jumpForce = 200
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="TopSprite" type="Sprite" parent="."]
+modulate = Color( 0, 1, 0.0627451, 1 )
+texture = ExtResource( 1 )
+offset = Vector2( 0, 8 )
+region_enabled = true
+region_rect = Rect2( 240, 33, 16, 16 )
+
+[node name="BotSprite" type="Sprite" parent="."]
+modulate = Color( 0, 1, 0.0627451, 1 )
+texture = ExtResource( 1 )
+offset = Vector2( 0, -8 )
+region_enabled = true
+region_rect = Rect2( 240, 0, 16, 16 )
